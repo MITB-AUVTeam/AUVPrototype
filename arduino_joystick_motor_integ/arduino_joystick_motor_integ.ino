@@ -1,25 +1,26 @@
 #include <Arduino.h>
 
-int m1 = 3;
-int m2 = 5;
-int m3 = 6;
-int m4 = 9;
+int mf = 3;
+int mb = 5;
+int ml = 6;
+int mr = 9;
 
 void setup()
 {
-    pinMode(m1, OUTPUT);
-    pinMode(m2, OUTPUT);
-    pinMode(m3, OUTPUT);
-    pinMode(m4, OUTPUT);
+    pinMode(mf, OUTPUT);
+    pinMode(mb, OUTPUT);
+    pinMode(ml, OUTPUT);
+    pinMode(mr, OUTPUT);
     Serial.begin(9600);
 }
 
 void loop()
 {
-    Serial.print(analogRead(A2));
-    Serial.print("    ");
-    Serial.print(analogRead(A3));
-    Serial.print("    ");
-    Serial.println(analogRead(A4));
-    delay(100);
+  if (analogRead(A2)>=484.5 && analogRead(A2)<=539.5) x=512;    //deadzone of 27.5 (obtained from 255*1.9=484.5)
+  else x=analogRead(A2);
+  if (analogRead(A3)>=484.5 && analogRead(A3)<=539.5) y=512;
+  else y=analogRead(A3);
+
+  
+
 }
